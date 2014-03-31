@@ -23,8 +23,7 @@ define(function (require, exports, module) {
     var dashDomain = new NodeDomain("dashcaller", ExtensionUtils.getModulePath(module, "node/DashCaller"));
 
     function callDash() {
-        //var doc = DocumentManager.getCurrentDocument();
-        var ed = EditorManager.getCurrentFullEditor();
+        var ed = EditorManager.getActiveEditor();
         var sel = ed.getSelection();
         if(!sel) return;
         var text = ed.document.getRange(sel.start, sel.end);
