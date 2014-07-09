@@ -3,7 +3,7 @@
     "title": "Brackets Dash",
     "description": "Adds Dash integration with Brackets. Requires Dash and OSX",
     "homepage": "https://github.com/cfjedimaster/brackets-dash",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "author": "Raymond Camden <raymondcamden@gmail.com> (http://www.raymondcamden.com)",
     "license": "MIT",
     "engines": {
