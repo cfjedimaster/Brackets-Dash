@@ -1,6 +1,6 @@
 /*
-* Totally stolen from https://github.com/njx/brackets-simple-node
-*/
+ * Totally stolen from https://github.com/njx/brackets-simple-node
+ */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4,
 maxerr: 50, browser: true */
@@ -9,13 +9,13 @@ maxerr: 50, browser: true */
 define(function (require, exports, module) {
     "use strict";
 
-    var ExtensionUtils    = brackets.getModule("utils/ExtensionUtils"),
-        NodeDomain        = brackets.getModule("utils/NodeDomain"),
-        AppInit           = brackets.getModule("utils/AppInit"),
+    var ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
+        NodeDomain = brackets.getModule("utils/NodeDomain"),
+        AppInit = brackets.getModule("utils/AppInit"),
         KeyBindingManager = brackets.getModule("command/KeyBindingManager"),
-        CommandManager    = brackets.getModule("command/CommandManager"),
-        EditorManager   = brackets.getModule("editor/EditorManager");
-
+        CommandManager = brackets.getModule("command/CommandManager"),
+        EditorManager = brackets.getModule("editor/EditorManager"),
+        DocumentManager = brackets.getModule("document/DocumentManager");
 
     //commands
     var DASH_EXECUTE = "dash.execute";
@@ -25,10 +25,13 @@ define(function (require, exports, module) {
     function callDash() {
         var ed = EditorManager.getActiveEditor();
         var sel = ed.getSelection();
-        if(!sel) return;
+        if (!sel) return;
         var text = ed.document.getRange(sel.start, sel.end);
-        if(!text) return;
-        dashDomain.exec("callHelp", text)
+        var current = DocumentManager.getCurrentDocument();
+        var doctype = current.language._id;
+        var searchString = doctype + ":" + text;
+        if (!text) return;
+        dashDomain.exec("callHelp", searchString)
             .done(function () {
                 console.log("[brackets-dash] Done with no errors.");
             }).fail(function (err) {
