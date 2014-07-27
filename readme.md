@@ -7,5 +7,7 @@ Note - the version is a bit weird since I accidentally pushed to the Registry wi
 
 History
 ===
+[7/27/14] PR by @notasz to intelligently notice the file type 
+and pass it to Dash. 
 
 [7/9/2014] PR by peteruithoven to add key command support: CMD+SHIFT+K
