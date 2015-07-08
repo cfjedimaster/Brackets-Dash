@@ -7,6 +7,8 @@ Note - the version is a bit weird since I accidentally pushed to the Registry wi
 
 History
 ===
+[7/8/2015] Fixes #5
+
 [7/27/14] PR by @notasz to intelligently notice the file type 
 and pass it to Dash. 
 

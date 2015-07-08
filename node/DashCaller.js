@@ -32,7 +32,7 @@ maxerr: 50, node: true */
     var exec = require('child_process').exec;
     
     function runDash(str) {
-        exec("open dash://"+str);
+        exec("open -g dash://"+str);
     }
     
     /**

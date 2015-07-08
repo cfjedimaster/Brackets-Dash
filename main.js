@@ -23,6 +23,7 @@ define(function (require, exports, module) {
     var dashDomain = new NodeDomain("dashcaller", ExtensionUtils.getModulePath(module, "node/DashCaller"));
 
     function callDash() {
+
         var ed = EditorManager.getActiveEditor();
         var sel = ed.getSelection();
         if (!sel) return;
@@ -44,7 +45,6 @@ define(function (require, exports, module) {
     AppInit.appReady(function () {
         console.log("[brackets-dash] init");
         KeyBindingManager.addBinding(DASH_EXECUTE, "SHIFT-CMD-K");
-
     });
 
 });
